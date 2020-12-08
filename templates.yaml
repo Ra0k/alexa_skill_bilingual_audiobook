@@ -1,7 +1,41 @@
-welcome: Welcome to memory game. I'm going to say three numbers for you to repeat backwards. Ready?
+welcome: Welcome to the bilingual audiobook app. I'm going to read you Harry Potter. Ready?
 
-round: Can you repeat the numbers {{ numbers|join(", ") }} backwards?
+welcome_back: Welcome back! I'm going to read to you Harry Potter from sentence {{page}}. Ready?
 
-win: Good job!
+read_sentence: '
+<speak>
+  <prosody rate="slow">
+    <voice name="Hans">
+      <lang xml:lang="de-DE">
+        {% for word in de %}
+          {{word}}
+        {% endfor %}
+      </lang>
+    </voice> 
+  </prosody>
+  <break time="500ms"/> 
+  <prosody rate="medium">
+    <voice name="Hans">
+      <lang xml:lang="de-DE">
+        {% for word in de %}
+          {{word}}
+        {% endfor %}
+      </lang>
+    </voice> 
+  </prosody>
+  <break time="1s"/> 
+  {{en}}
+  <break time="1s"/>
+  <prosody rate="medium">
+    <voice name="Hans">
+      <lang xml:lang="de-DE">
+        {{ de|join(" ") }}
+      </lang>
+    </voice> 
+  </prosody>
+</speak> 
+'
 
-lose: Sorry, that's the wrong answer.
+want_countinue: Do you want to continue?
+
+fallback: Sorry, I didn't hear that. Do you want me to continue?
