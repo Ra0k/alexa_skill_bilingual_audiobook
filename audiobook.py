@@ -23,23 +23,57 @@ def welcome():
 
 @ask.intent("AMAZON.ResumeIntent")
 def resume_intent():
+    while session.attributes.get('TASK') == 'REPEAT':
+        shift = session.attributes.get('MESSAGE', {}).get('SHIFT')
+        languages = session.attributes.get('MESSAGE', {}).get('LANGUAGES')
+        if shift == 0:
+            session.attributes.pop('MESSAGE', None)
+            session.attributes.pop('TASK', None)
+            break
+        session.attributes['MESSAGE']['SHIFT'] = shift+1
+        return func.read_next_sentence(update_state=False, shift=shift, languages=languages)
     return func.read_next_sentence()
 
 
-@ask.intent("ContinueIntent")
-def next_round():
+@ask.intent("ReadyIntent")
+def next_intent():
+    while session.attributes.get('TASK') == 'REPEAT':
+        shift = session.attributes.get('MESSAGE', {}).get('SHIFT')
+        languages = session.attributes.get('MESSAGE', {}).get('LANGUAGES')
+        if shift == 0:
+            session.attributes.pop('MESSAGE', None)
+            session.attributes.pop('TASK', None)
+            break
+        session.attributes['MESSAGE']['SHIFT'] = shift+1
+        return func.read_next_sentence(update_state=False, shift=shift, languages=languages)
     return func.read_next_sentence()
+    
 
+@ask.intent("RepeatIntent", convert={'shift': int})
+def repeat(shift, language, *arg, **argv):
+    print(shift, language, *arg, **argv)
+    language_mapping = {
+        'german': 'de',
+        'english': 'en'
+    }
 
-#@ask.intent("AnswerIntent", convert={'first': int, 'second': int, 'third': int})
-#def answer(first, second, third):
-#    winning_numbers = session.attributes['numbers']
-#    if [first, second, third] == winning_numbers:
-#        msg = render_template('win')
-#    else:
-#        msg = render_template('lose')
-#
-#    return statement(msg)
+    if shift == None: shift = 1
+    shift = -1 * shift
+
+    languages = []
+    if isinstance(language, str): 
+        if language.lower() in language_mapping:
+            languages.append(language_mapping[language.lower()])
+    elif isinstance(language, list):
+        languages = []
+        for lang in list(language):
+            if lang.lower() in language_mapping:
+                languages.append(language_mapping[lang.lower()])
+
+    session.attributes['TASK'] = 'REPEAT'
+    session.attributes['MESSAGE'] = {'SHIFT': shift+1, 'LANGUAGES': languages}
+
+    return func.read_next_sentence(update_state=False, shift=shift, languages=languages)
 
 
 @ask.intent("AMAZON.FallbackIntent")

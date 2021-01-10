@@ -4,22 +4,10 @@ welcome_back: Welcome back! I'm going to read to you Harry Potter from sentence 
 
 read_sentence: '
 <speak>
-  <prosody rate="slow">
-    <voice name="Hans">
-      <lang xml:lang="de-DE">
-        {% for word in de %}
-          {{word}}
-        {% endfor %}
-      </lang>
-    </voice> 
-  </prosody>
-  <break time="500ms"/> 
   <prosody rate="medium">
     <voice name="Hans">
       <lang xml:lang="de-DE">
-        {% for word in de %}
-          {{word}}
-        {% endfor %}
+        {{de}}
       </lang>
     </voice> 
   </prosody>
@@ -29,10 +17,30 @@ read_sentence: '
   <prosody rate="medium">
     <voice name="Hans">
       <lang xml:lang="de-DE">
-        {{ de|join(" ") }}
+        {{de}}
       </lang>
     </voice> 
   </prosody>
+</speak> 
+'
+
+repeat_sentence: '
+<speak>
+  {% if de is not none %}
+    <prosody rate="medium">
+      <voice name="Hans">
+        <lang xml:lang="de-DE">
+          {{de}}
+        </lang>
+      </voice> 
+    </prosody>
+  {% endif %}
+  {% if (de is not none) and (en is not none) %}
+    <break time="1s"/> 
+  {% endif %}
+  {% if en is not none %}
+    {{en}}
+  {% endif %}
 </speak> 
 '
 
