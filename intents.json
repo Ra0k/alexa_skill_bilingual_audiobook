@@ -29,13 +29,174 @@
                     "samples": []
                 },
                 {
-                    "name": "ContinueIntent",
+                    "name": "ReadyIntent",
                     "slots": [],
                     "samples": [
                         "sure",
                         "ready",
                         "yes I am ready",
                         "yes"
+                    ]
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "RepeatIntent",
+                    "slots": [
+                        {
+                            "name": "shift",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "language",
+                            "type": "AMAZON.Language",
+                            "multipleValues": {
+                                "enabled": true
+                            }
+                        }
+                    ],
+                    "samples": [
+                        "Say it again in {language}",
+                        "please repeat the last {shift} sentences in {language}",
+                        "repeat the previous sentence in {language}",
+                        "repeat it in {language}",
+                        "repeat in {language}",
+                        "repeat the last sentence in {language}",
+                        "repeat the last {shift} sentence in {language}",
+                        "please repeat the last {shift} sentences",
+                        "i want to hear the last {shift} sentences again",
+                        "read the last {shift} sentences again ",
+                        "repeat the {shift} previous sentences",
+                        "repeat the {shift} last sentences",
+                        "repeat the previous sentence",
+                        "repeat the last {shift} sentences",
+                        "Repeat",
+                        "Say it again",
+                        "Repeat it again",
+                        "Please repeat the last sentence",
+                        "Repeat the last sentence"
+                    ]
+                },
+                {
+                    "name": "ChangeLevelToEasyIntent",
+                    "slots": [],
+                    "samples": [
+                        "set the level to starter ",
+                        "change the level to starter ",
+                        "make the level to starter",
+                        "please set the level to starter ",
+                        "please change the level to starter ",
+                        "please make the level to starter",
+                        "set the level to beginner",
+                        "change the level to beginner",
+                        "make the level to beginner",
+                        "please set the level to beginner",
+                        "please change the level to beginner",
+                        "please make the level to beginner",
+                        "set the level to novice",
+                        "change the level to novice",
+                        "make the level to novice",
+                        "please set the level to novice",
+                        "please change the level to novice",
+                        "please make the level to novice",
+                        "set the level to easy",
+                        "change the level to easy",
+                        "make the level to easy",
+                        "please set the level to easy",
+                        "please change the level to easy",
+                        "please make the level to easy",
+                        "set the level to a one",
+                        "change the level to a one",
+                        "make the level to a one",
+                        "please set the level to a one",
+                        "please change the level to a one",
+                        "please make the level to a one",
+                        "set the level to a two",
+                        "change the level to a two",
+                        "make the level to a two",
+                        "please set the level to a two",
+                        "please change the level to a two",
+                        "please make the level to a two",
+                        "set the level to one",
+                        "change the level to one",
+                        "make the level to one",
+                        "please set the level to one",
+                        "please change the level to one",
+                        "please make the level to one",
+                        "speak slower",
+                        "it is too fast to me"
+                    ]
+                },
+                {
+                    "name": "ChangeLevelToIntermediateIntent",
+                    "slots": [],
+                    "samples": [
+                        "set the level to intermediate",
+                        "change the level to intermediate",
+                        "make the level to intermediate",
+                        "please set the level to intermediate",
+                        "please change the level to intermediate",
+                        "please make the level to intermediate",
+                        "set the level to mid",
+                        "change the level to mid",
+                        "make the level to mid",
+                        "please set the level to mid",
+                        "please change the level to mid",
+                        "please make the level to mid",
+                        "set the level to b one",
+                        "change the level to b one",
+                        "make the level to b one",
+                        "please set the level to b one",
+                        "please change the level to b one",
+                        "please make the level to b one",
+                        "set the level to two",
+                        "change the level to two",
+                        "make the level to two",
+                        "please set the level to two",
+                        "please change the level to two",
+                        "please make the level to two"
+                    ]
+                },
+                {
+                    "name": "ChangeLevelToAdvancedIntent",
+                    "slots": [],
+                    "samples": [
+                        "set the level to advanced",
+                        "change the level to advanced",
+                        "make the level to advanced",
+                        "please set the level to advanced",
+                        "please change the level to advanced",
+                        "please make the level to advanced",
+                        "set the level to pro",
+                        "change the level to pro",
+                        "make the level to pro",
+                        "please set the level to pro",
+                        "please change the level to pro",
+                        "please make the level to pro",
+                        "set the level to b two",
+                        "change the level to b two",
+                        "make the level to b two",
+                        "please set the level to b two",
+                        "please change the level to b two",
+                        "please make the level to b two",
+                        "set the level to c one",
+                        "change the level to c one",
+                        "make the level to c one",
+                        "please set the level to c one",
+                        "please change the level to c one",
+                        "please make the level to c one",
+                        "set the level to three",
+                        "change the level to three",
+                        "make the level to three",
+                        "please set the level to three",
+                        "please change the level to three",
+                        "please make the level to three"
                     ]
                 }
             ],

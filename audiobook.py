@@ -2,13 +2,14 @@ from flask import Flask, render_template
 from flask_ask import Ask, statement, question, session
 from models import db
 
+import os
 import func
 import logging
 
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://audiobook:audiobook1234@167.99.243.10/audiobook'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['audiobook_db']
 db.init_app(app)
 
 ask = Ask(app, "/")
@@ -47,7 +48,7 @@ def next_intent():
         session.attributes['MESSAGE']['SHIFT'] = shift+1
         return func.read_next_sentence(update_state=False, shift=shift, languages=languages)
     return func.read_next_sentence()
-    
+
 
 @ask.intent("RepeatIntent", convert={'shift': int})
 def repeat(shift, language, *arg, **argv):
@@ -74,6 +75,21 @@ def repeat(shift, language, *arg, **argv):
     session.attributes['MESSAGE'] = {'SHIFT': shift+1, 'LANGUAGES': languages}
 
     return func.read_next_sentence(update_state=False, shift=shift, languages=languages)
+
+
+@ask.intent("ChangeLevelToEasyIntent")
+def next_intent():
+    return func.set_level(1)
+
+
+@ask.intent("ChangeLevelToIntermediateIntent")
+def next_intent():
+    return func.set_level(2)
+
+
+@ask.intent("ChangeLevelToAdvancedIntent")
+def next_intent():
+    return func.set_level(3)
 
 
 @ask.intent("AMAZON.FallbackIntent")

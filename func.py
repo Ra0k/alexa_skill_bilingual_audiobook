@@ -8,10 +8,20 @@ def welcome():
 
     userstate = users.get_user_state(user_id)
     if userstate is not None:
-        response = render_template('welcome_back', page=userstate.sentence + 1)
+        response = render_template('welcome_back', title=userstate.book, page=userstate.sentence + 1)
     else:
-        response = render_template('welcome')
-        users.create_user_state(user_id, 'Harry Potter and the Philosopher\'s Stone')
+        response = render_template('welcome', title=userstate.book)
+        users.create_user_state(user_id, books.default_book)
+
+    return question(response)
+
+
+def set_level(level=0):
+    user_id = session.user.userId
+
+    userstate = users.get_user_state(user_id)
+    users.set_level(userstate, level)
+    response = render_template('level_updated', level=level)
 
     return question(response)
 
@@ -25,7 +35,12 @@ def read_next_sentence(update_state=True, shift=0, languages=[]):
     sentence = books.get_sentences()[sentence_id + shift]
 
     if languages == []:
-        response = render_template('read_sentence', de=sentence['de'], en=sentence['en'])
+        reader = 'read_sentence_beginner'
+        if userstate.level == 2:
+            reader = 'read_sentence_intermediate'
+        if userstate.level == 3:
+            reader = 'read_sentence_advanced'
+        response = render_template(reader, de=sentence['de'], en=sentence['en'])
     else:
         de, en = None, None
         if 'de' in languages:

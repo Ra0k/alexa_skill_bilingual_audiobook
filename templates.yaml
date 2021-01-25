@@ -1,20 +1,53 @@
-welcome: Welcome to the bilingual audiobook app. I'm going to read you Harry Potter. Ready?
+welcome: Welcome to the bilingual audiobook app. I'm going to read you {{title}}. Ready?
 
-welcome_back: Welcome back! I'm going to read to you Harry Potter from sentence {{page}}. Ready?
+welcome_back: Welcome back! I'm going to read to you {{title}} from sentence {{page}}. Ready?
 
-read_sentence: '
+want_countinue: Do you want to continue?
+
+fallback: Sorry, I didn't hear that. Do you want me to continue?
+
+level_updated: 'I set the level to 
+{% if level == 1 %}
+ beginner
+{% elif level == 2 %}
+ intermediate
+{% else %}
+  advanced
+{% endif %}
+. Do you want me to continue?
+'
+
+read_sentence_beginner: '
 <speak>
-  <prosody rate="medium">
+  <prosody rate="70%">
     <voice name="Hans">
       <lang xml:lang="de-DE">
         {{de}}
       </lang>
     </voice> 
   </prosody>
-  <break time="1s"/> 
+  <break time="500ms"/> 
   {{en}}
-  <break time="1s"/>
-  <prosody rate="medium">
+</speak> 
+'
+
+read_sentence_intermediate: '
+<speak>
+  <prosody>
+    <voice name="Hans">
+      <lang xml:lang="de-DE">
+        {{de}}
+      </lang>
+    </voice> 
+  </prosody>
+  <break time="500ms"/> 
+  {{en}}
+</speak> 
+'
+
+read_sentence_advanced: '
+<speak>
+  <prosody>
     <voice name="Hans">
       <lang xml:lang="de-DE">
         {{de}}
@@ -44,6 +77,24 @@ repeat_sentence: '
 </speak> 
 '
 
-want_countinue: Do you want to continue?
-
-fallback: Sorry, I didn't hear that. Do you want me to continue?
+read_sentence_beginner_old: '
+<speak>
+  <prosody rate="slow">
+    <voice name="Hans">
+      <lang xml:lang="de-DE">
+        {{de}}
+      </lang>
+    </voice> 
+  </prosody>
+  <break time="1s"/> 
+  {{en}}
+  <break time="1s"/>
+  <prosody rate="medium">
+    <voice name="Hans">
+      <lang xml:lang="de-DE">
+        {{de}}
+      </lang>
+    </voice> 
+  </prosody>
+</speak> 
+'
