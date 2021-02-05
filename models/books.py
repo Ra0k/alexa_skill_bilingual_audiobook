@@ -1,10 +1,10 @@
-default_book = 'The Metamorphosis'
+default_book = 'The Trial'
 
 def _get_book(name=default_book):
     
     if name == 'Harry Potter and the Philosopher\'s Stone':
         filename = 'hp1_de_en_cleaned_translated.txt'
-    elif name == 'The Metamorphosis':
+    elif name == 'The Trial':
         filename = 'de_en_matched_Kafka_Franz_Prozess.txt'
 
     file = open(f'data/{filename}', 'r')
@@ -34,8 +34,8 @@ books = {
         'source': 'de',
         'translations': ['en']
     },
-    'The Metamorphosis': {
-        'sentences': _get_book('The Metamorphosis'),
+    'The Trial': {
+        'sentences': _get_book('The Trial'),
         'source': 'de',
         'translations': ['en']
     }

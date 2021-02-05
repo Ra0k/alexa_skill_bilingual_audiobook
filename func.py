@@ -10,7 +10,7 @@ def welcome():
     if userstate is not None:
         response = render_template('welcome_back', title=userstate.book, page=userstate.sentence + 1)
     else:
-        response = render_template('welcome', title=userstate.book)
+        response = render_template('welcome', title=books.default_book)
         users.create_user_state(user_id, books.default_book)
 
     return question(response)
