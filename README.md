@@ -18,7 +18,7 @@ We applied the following steps for both original and translated English sentence
 * Porter stemmer is used for stemming words
 
 ## Model & Matching Logic
-* Notebook: https://colab.research.google.com/github/Ra0k/alexa_skill_bilingual_audiobook/blob/main/bilingual_reader.ipynb
+* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Ra0k/alexa_skill_bilingual_audiobook/blob/main/bilingual_reader.ipynb)
 * German sentences are translated to English using the FSMT (FairSeq MachineTranslation) model.
 * Word2vec word embedding model is trained on English sentences using Gensim.
 * The average feature vector is calculated for each sentence. 
