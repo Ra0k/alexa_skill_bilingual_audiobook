@@ -47,6 +47,27 @@ If the server doesn't have SSL connection or public IP, localtunnel or ngrok can
 
 ```python3 audiobook.py```
 
+# Code
+
+##### data/
+Raw and generated bilingual books in text format
+
+##### models/
+Data objects and their interface. User states are stored in the database, while books are loaded into the memory. 
+
+##### audiobook.py
+Main logic and intents. 
+
+##### func.py
+Implementation of the features, database operations, output generation. 
+
+##### templates.yaml
+Contains the rendering logic of the answers, questions and other texts.
+
+##### intents.json
+Configuration of the intents. 
+
+
 # Alexa-Interface & Examples
 
 3-5. sentences from the book (contain both one-to-one and many-to-one match )
