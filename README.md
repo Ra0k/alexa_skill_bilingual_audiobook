@@ -70,6 +70,24 @@ Configuration of the intents.
 
 # Alexa-Interface & Examples
 
-3-5. sentences from the book (contain both one-to-one and many-to-one match )
-maybe an example from the other book 
-video or audio (?)
+## Sample from the matched file:
+
+**German:**
+Nein , warum denn ?
+**English:**
+No, why should you think that?
+
+**German:**
+Sie sind nur verhaftet , nichts weiter .
+**English:**
+You're simply under arrest, nothing more than that.
+
+**German:**
+Das hatte ich Ihnen mitzuteilen , habe es getan und habe auch gesehen , wie Sie es aufgenommen haben .
+**English:**
+That's what I had to tell you, that's what I've done and now I've seen how you've taken it.
+
+
+## Extract from an Alexa conversation 
+
+
