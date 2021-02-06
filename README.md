@@ -10,6 +10,7 @@ Alexa Skill that reads short sections from a book in German and English with the
 
 ## Data Collection
 We used The Trial (German: Der Prozess) by Franz Kafka which is a book from the public domain as an example.
+We downloaded it in both English and German.
 
 ## Data Preprocessing
 After we splitted the original English translation into sentences 
@@ -20,10 +21,13 @@ We applied the following steps for both original and translated English sentence
 ## Model & Matching Logic
 * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Ra0k/alexa_skill_bilingual_audiobook/blob/main/bilingual_reader.ipynb)
 * German sentences are translated to English using the FSMT (FairSeq MachineTranslation) model.
-* Word2vec word embedding model is trained on English sentences using Gensim.
+* Word2vec word embedding model is trained on the original and translated English sentences using Gensim.
 * The average feature vector is calculated for each sentence. 
-* Cosine similarity is calculated to measure the similarity between sentences.
+* Cosine similarity is calculated to measure the similarity between translated and original sentences.
 * Similarity calculations are performed within a window size of 3 to match the sequence of sentences on a one-to-one or many-to-one basis
+
+## Output
+* The sentence-matched file of the two original books.
 
 
 # Deployment 
