@@ -91,6 +91,10 @@ Das hatte ich Ihnen mitzuteilen , habe es getan und habe auch gesehen , wie Sie 
 **English:**
 That's what I had to tell you, that's what I've done and now I've seen how you've taken it.
 
+**German:**
+Sofort klopfte es und ein Mann , den er in dieser Wohnung noch niemals gesehen hatte , trat ein .
+**English:**
+There was immediately a knock at the door and a man entered. He had never seen the man in this house before.
 
 ## Extraction from an Alexa conversation 
 
