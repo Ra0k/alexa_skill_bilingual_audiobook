@@ -1,5 +1,3 @@
-# alexa_skill_bilingual_audiobook
-
 # Bilingual Audiobook Reader 
 
 Alexa Skill that reads short sections from a book in German and English with the correct pronunciations and that has the following features:
@@ -27,7 +25,25 @@ We applied the following steps for both original and translated English sentence
 
 
 # Deployment 
+### Requirements
+Python3, and SqlAlchemy compatibe database installed.
 
+#### Dependencies
+- flask_sqlalchemy
+- flask
+- flask_ask
+
+#### Environment
+The database URI is not hard-coded into the script. Before using, the URI needs to be saved to the corresponding environment variable. 
+
+```audiobook_db=database_URI```
+
+#### Secure connection
+If the server doesn't have SSL connection or public IP, localtunnel or ngrok can be used as an alternative to set up a secure connecton with Alexa. Without a secure connection, Alexa won't communicate with the skill. 
+
+#### Start server
+
+```python3 audiobook.py```
 
 # Alexa-Interface & Examples
 
